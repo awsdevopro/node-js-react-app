@@ -11,8 +11,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'sudo mkdir ~/.npm'
-                sh 'sudo chown -R $USER:$GROUP ~/.npm'
+                sh 'mkdir ~/.npm'
+                sh 'chown -R $USER:$GROUP ~/.npm'
+                sh 'chown -R $USER:$GROUP ~/.config'
                 sh 'npm install'
             }
         }

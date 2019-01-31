@@ -1,18 +1,21 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:8.15.0-jessie'
-            args '-p 3000:3000'
-        }
-    }
+    agent { docker { image 'node:8.15.0-jessie' } }
     environment {
-        CI = 'true'
+        HOME = '.'
     }
     stages {
+        stage('Clone') {
+            steps {
+                git branch: 'master',
+                    credentialsId: '',
+                    url: 'https://github.com/awsdevopro/node-js-react-app.git'
+            }
+        }
         stage('Build') {
             steps {
-            git 'https://github.com/awsdevopro/node-js-react-app'
-             sh 'npm install'
+                sh "npm install"
+                sh "npm -version"
+
             }
         }
         stage('Test') {

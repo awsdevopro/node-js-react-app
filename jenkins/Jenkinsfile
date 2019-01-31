@@ -13,7 +13,6 @@ pipeline {
             steps {
                 sh 'mkdir .npm'
                 sh 'chown -R $USER:$GROUP .npm'
-                sh 'chown -R $USER:$GROUP .config'
                 sh 'npm install'
             }
         }

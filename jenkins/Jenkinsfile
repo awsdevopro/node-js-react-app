@@ -4,13 +4,6 @@ pipeline {
         HOME = '.'
     }
     stages {
-        stage('Clone') {
-            steps {
-                git branch: 'master',
-                    credentialsId: '',
-                    url: 'https://github.com/awsdevopro/node-js-react-app.git'
-            }
-        }
         stage('Build') {
             steps {
                 sh "npm install"

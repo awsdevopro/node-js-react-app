@@ -11,9 +11,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'rm -rf .npm && mkdir .npm'
-                sh 'chown -R $USER:$GROUP .npm'
-                sh 'npm install'
+            git 'https://github.com/awsdevopro/node-js-react-app'
+             sh 'npm install'
             }
         }
         stage('Test') {
